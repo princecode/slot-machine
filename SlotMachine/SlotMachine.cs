@@ -13,7 +13,8 @@ namespace SlotMachine
         public int IconsPerSlot { get; set; }
         public int MinimumBet { get; set; }
         public int MaximumBet { get; set; }
-        
+
+        Random random;
 
         private int _currentBet;
         public int CurrentBet
@@ -73,6 +74,8 @@ namespace SlotMachine
         public int[] GetResults()
         {
             PullLever();
+
+            return icons;
             
         }
 
@@ -84,10 +87,19 @@ namespace SlotMachine
         public int GetPayout()
         {
             // TODO
-            return 0;
-        }
 
+            if (icons[0] == icons[1] && icons[1] == icons[2])
+            {
+                return CurrentBet * 2;
+            }
+            else
+            {
 
+                return 0;
+
+            }
+
+        } 
 
     }
 }
