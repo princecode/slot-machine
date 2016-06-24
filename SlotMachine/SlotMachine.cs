@@ -56,7 +56,14 @@ namespace SlotMachine
         /// </summary>
         public void PullLever()
         {
-            // TODO
+            
+            icons = new int[NumberOfSlots];
+            random = new Random();
+            for (int i = 0; i < icons.Length; i++)
+            {
+                icons[i] = random.Next(1, IconsPerSlot + 1);
+            }
+
         }
 
         /// <summary>
@@ -65,8 +72,8 @@ namespace SlotMachine
         /// <returns>an int[] with each slot as an element of the array</returns>
         public int[] GetResults()
         {
-            // TODO
-            return null;
+            PullLever();
+            
         }
 
         /// <summary>
