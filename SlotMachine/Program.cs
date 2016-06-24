@@ -21,14 +21,14 @@ namespace SlotMachine
         {
             SlotMachine myMachine = new SlotMachine(); // 3 slots, 5 icons per slot
 
-            Console.WriteLine("Welcome to slots!");
+            Console.WriteLine("\n\nWelcome to ¢heapE slots!\n");
 
-            Console.WriteLine("Directions");
+            Console.WriteLine("This is a simple penny slot machine. Place your wager and win BIG!!!\n\n");
 
             while (true)
             {
                 // place a bet
-                Console.WriteLine("Type in how many pennies to bet");
+                Console.WriteLine("Please enter your wager in pennies.");
 
                 // You could get this using:
                 // int userBet = Convert.ToInt32(Console.ReadLine());

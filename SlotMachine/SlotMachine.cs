@@ -14,7 +14,7 @@ namespace SlotMachine
         public int MinimumBet { get; set; }
         public int MaximumBet { get; set; }
 
-        Random random;
+        Random randomNumGen; // Changed name to make more obvious what it does and where connected
 
         private int _currentBet;
         public int CurrentBet
@@ -59,10 +59,11 @@ namespace SlotMachine
         {
             
             icons = new int[NumberOfSlots];
-            random = new Random();
+            randomNumGen = new Random();
+
             for (int i = 0; i < icons.Length; i++)
             {
-                icons[i] = random.Next(1, IconsPerSlot + 1);
+                icons[i] = randomNumGen.Next(1, IconsPerSlot + 1);
             }
 
         }
@@ -73,7 +74,7 @@ namespace SlotMachine
         /// <returns>an int[] with each slot as an element of the array</returns>
         public int[] GetResults()
         {
-            PullLever();
+            //PullLever(); <---- Was un-needed already pulled in program.cs, this was causing double pull
 
             return icons;
             
@@ -86,8 +87,7 @@ namespace SlotMachine
         /// <returns>number of pennies to pay out</returns>
         public int GetPayout()
         {
-            // TODO
-
+                        
             if (icons[0] == icons[1] && icons[1] == icons[2])
             {
                 return CurrentBet * 2;
